@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  position: relative;
+  font-size: 18px;
+  position: relative;
+  background-image: url(./images/bg-main-desktop.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: url(./design/desktop-design.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  opacity: 0.3;
+}
+
+.container {
+  width: 1110px;
+  margin: auto;
+}
+
+.container {
+  height: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+}
+
+.card {
+  height: 245px;
+  width: 447px;
+  position: relative;
+}
+
+.card--small-font {
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.front-card {
+  margin-bottom: 38px;
+}
+
+.front-card__logo {
+  position: absolute;
+  top: 28px;
+  left: 30px;
+}
+
+.front-card__bottom {
+  position: absolute;
+  bottom: 0;
+  padding: 25px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.front-card__number {
+  display: block;
+  font-size: 1.61em;
+  margin-bottom: 26px;
+  letter-spacing: 2.9px;
+  color: white;
+}
+
+.front-card__name {
+  letter-spacing: 2px;
+}
+
+.front-card__exp {
+  margin-left: auto;
+  letter-spacing: 1.5px;
+  padding-right: 4px;
+}
+
+.back-card {
+  margin-left: 93px;
+}
+
+.back-card__key {
+  position: absolute;
+  right: 57px;
+  letter-spacing: 2px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+/*# sourceMappingURL=style.css.map */
