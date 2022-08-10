@@ -68,34 +68,65 @@
           <div class="form__wrapper">
             <span class="form__title"> Cardholder Name</span>
             <input
-              placeholder="e.g. Jane
-            Appleseed "
+              id="name"
+              placeholder="e.g. Jane Appleseed"
               type="text"
               class="form__input"
             />
+            <span class="form__error--blank">Can't be blank</span>
           </div>
           <div class="form__wrapper">
             <span class="form__title"> Card Number</span>
             <input
-              type="text"
+              id="creditCard"
+              maxlength="19"
               class="form__input"
               placeholder="e.g. 1234 5678 9123 0000"
             />
+            <span class="form__error--blank">Can't be blank</span>
+            <span class="form__error--credit">Wrong format, numbers only</span>
           </div>
-          <div class="form__wrapper--half">
+          <div class="form__wrapper--half form__wrapper--date">
             <span class="form__title"> Exp. Date (MM/YY)</span>
-            <input placeholder="MM" type="text" class="form__input" />
-            <input placeholder="YY" type="text" class="form__input" />
+            <input
+              placeholder="MM"
+              type="text"
+              maxlength="2"
+              min="01"
+              max="12"
+              step="1"
+              pattern="[0-9]{2}"
+              class="form__input"
+              id="month"
+            />
+            <input
+              placeholder="YY"
+              maxlength="2"
+              min="01"
+              max="99"
+              step="1"
+              pattern="[0-9]{2}"
+              class="form__input"
+              id="year"
+            />
+            <span class="form__error--blank">Can't be blank</span>
           </div>
           <div class="form__wrapper--half">
             <span class="form__title"> CVC</span>
             <input
-              type="text"
               class="form__input"
+              type="text"
+              maxlength="3"
+              min="100"
+              max="999"
+              step="1"
+              id="keyCode"
+              pattern="[0-9]{3}"
               placeholder="e.g. 123 Confirm"
             />
+            <span class="form__error--blank">Can't be blank</span>
           </div>
-          <button class="form__btn"></button>
+          <button class="form__btn">Confirm</button>
         </form>
       </div>
     </main>
@@ -110,5 +141,6 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
     </div>
+    <script src="js.js"></script>
   </body>
 </html>
