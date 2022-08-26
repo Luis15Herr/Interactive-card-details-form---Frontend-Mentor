@@ -10,21 +10,10 @@ let creditCardHtml = document.querySelector(".front-card__number");
 let nameHtml = document.querySelector(".front-card__name");
 let expDateHtml = document.querySelector(".front-card__exp");
 let keyHtml = document.querySelector(".back-card__key");
-let error = false;
 
 form.addEventListener("submit", function () {
+  let error = false;
   event.preventDefault();
-  inputs.forEach((item) => {
-    if (item.value.trim() === "") {
-      item.parentNode.classList.add("form__wrapper--error");
-      item.classList.add("form__input--error");
-      error = true;
-    } else {
-      item.parentNode.classList.remove("form__wrapper--error");
-      item.classList.remove("form__input--error");
-      error = false;
-    }
-  });
   if (
     /(?<!\d)\d{16}(?!\d)|(?<!\d[ _-])(?<!\d)\d{4}(?:[_ -]\d{4}){3}(?![_ -]?\d)/.test(
       creditCard.value
@@ -36,11 +25,37 @@ form.addEventListener("submit", function () {
       return;
     creditCard.parentNode.classList.add("form__wrapper--errorCredit");
   }
+
+  inputs.forEach((item) => {
+    if (item.value.trim() === "") {
+      if (creditCard.value === "")
+        creditCard.parentNode.classList.remove("form__wrapper--errorCredit");
+      item.parentNode.classList.add("form__wrapper--error");
+      item.classList.add("form__input--error");
+    } else {
+      item.parentNode.classList.remove("form__wrapper--error");
+      item.classList.remove("form__input--error");
+    }
+    if (
+      item.parentNode.classList.contains("form__wrapper--errorCredit") ||
+      item.parentNode.classList.contains("form__wrapper--error")
+    ) {
+      error = true;
+    }
+  });
+
   if (error === false) {
+    alert("No error");
     creditCardHtml.innerHTML = creditCard.value;
     nameHtml.innerHTML = name.value;
     expDateHtml.innerHTML = month.value + "/" + year.value;
     keyHtml.innerHTML = keyCode.value;
+    odoo.default({
+      el: ".js-odoo",
+      from: "0000 0000 0000 0000",
+      to: "CODEVEMBER",
+      animationDelay: 500,
+    });
   }
 });
 let counter = 0;

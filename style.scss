@@ -21,7 +21,8 @@ body {
   background-image: url(./images/bg-main-desktop.png);
   background-position: left;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 33.68% 100%;
+
   /* &::after {
     content: "";
     width: 100%;
@@ -29,7 +30,7 @@ body {
     top: 0;
     left: 0;
     pointer-events: none;
-    background-image: url(./design/active-states.jpg);
+    background-image: url(./design/complete-state-desktop.jpg);
     background-position: center;
     background-repeat: no-repeat;
     position: absolute;
@@ -185,6 +186,9 @@ input::-webkit-inner-spin-button {
   .form__error--credit {
     display: block;
   }
+  .form__input {
+    border: 1px solid $Red;
+  }
 }
 .form__btn {
   width: 100%;
@@ -199,6 +203,41 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
+.completed {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  align-content: center;
+
+  span {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+.completed__txt {
+  margin-top: 30px;
+  font-size: 1.6em;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.completed__subTxt {
+  margin-top: 15px;
+}
+.completed__btn {
+  margin-top: 48px;
+  height: 53px;
+  width: 380px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 1em;
+  letter-spacing: 1px;
+  background-color: $Verydarkviolet;
+  cursor: pointer;
+}
 .attribution {
   position: absolute;
   font-size: 11px;
@@ -208,5 +247,105 @@ input::-webkit-inner-spin-button {
   left: 50%;
   a {
     color: hsl(228, 45%, 44%);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 800px) {
+  body {
+    background-image: url(./images/bg-main-mobile.png);
+    background-size: 100% 35%;
+
+    background-position: top;
+  }
+  .container {
+    width: 70%;
+    grid-template-columns: 1fr;
+    padding: 35px 0;
+    align-content: initial;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .front-card {
+    order: 1;
+    position: absolute;
+    bottom: 10px;
+    z-index: 1;
+  }
+  .back-card {
+    margin-left: auto;
+  }
+  .card {
+    margin-bottom: 0;
+  }
+  .form-container {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html,
+  body {
+    height: auto;
+  }
+
+  body {
+    background-image: url(./images/bg-main-mobile.png);
+    background-size: 100% 230px;
+    background-position: top;
+    padding-bottom: 30px;
+  }
+  .container {
+    width: 100%;
+    height: auto;
+    padding: 35px 20px;
+    display: block;
+  }
+  .front-card {
+    bottom: -90px;
+  }
+  .back-card {
+    margin-left: auto;
+  }
+  .card {
+    height: 160px;
+    width: 290px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .front-card__logo {
+    top: 5px;
+    left: 15px;
+    transform: scale(0.6);
+  }
+  .front-card__number {
+    font-size: 0.86em;
+  }
+  .card--small-font {
+    font-size: 0.6em;
+  }
+  .back-card__key {
+    right: 35px;
+  }
+  .form-container {
+    margin-top: 120px;
+  }
+  .form {
+    padding: 0;
+  }
+  .form__wrapper--half {
+    margin-bottom: 30px;
+  }
+  .completed__btn {
+    width: 100%;
   }
 }
