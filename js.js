@@ -1,4 +1,5 @@
 let form = document.querySelector(".form");
+let completedDiv = document.querySelector(".completed");
 let inputs = document.querySelectorAll("input");
 let name = document.querySelector("#name");
 let creditCard = document.querySelector("#creditCard");
@@ -6,58 +7,109 @@ let month = document.querySelector("#month");
 let year = document.querySelector("#year");
 let keyCode = document.querySelector("#keyCode");
 let actualYear = new Date().getFullYear();
-let creditCardHtml = document.querySelector(".front-card__number");
-let nameHtml = document.querySelector(".front-card__name");
-let expDateHtml = document.querySelector(".front-card__exp");
+let creditCardValue = document.querySelector(".front-card__number .value");
+let nameHtmlValue = document.querySelector(".front-card__name .value");
+let expDateHtmlValue = document.querySelector(".front-card__exp .value");
 let keyHtml = document.querySelector(".back-card__key");
 
-form.addEventListener("submit", function () {
-  let error = false;
-  event.preventDefault();
-  if (
-    /(?<!\d)\d{16}(?!\d)|(?<!\d[ _-])(?<!\d)\d{4}(?:[_ -]\d{4}){3}(?![_ -]?\d)/.test(
-      creditCard.value
-    )
-  ) {
-    creditCard.parentNode.classList.remove("form__wrapper--errorCredit");
-  } else {
-    if (creditCard.parentNode.classList.contains("form__wrapper--error"))
-      return;
-    creditCard.parentNode.classList.add("form__wrapper--errorCredit");
-  }
+let error = false;
 
-  inputs.forEach((item) => {
-    if (item.value.trim() === "") {
-      if (creditCard.value === "")
-        creditCard.parentNode.classList.remove("form__wrapper--errorCredit");
-      item.parentNode.classList.add("form__wrapper--error");
-      item.classList.add("form__input--error");
-    } else {
-      item.parentNode.classList.remove("form__wrapper--error");
-      item.classList.remove("form__input--error");
-    }
-    if (
-      item.parentNode.classList.contains("form__wrapper--errorCredit") ||
-      item.parentNode.classList.contains("form__wrapper--error")
-    ) {
-      error = true;
-    }
-  });
+let regexList = {
+  name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+  creditCard:
+    /(?<!\d)\d{16}(?!\d)|(?<!\d[ _-])(?<!\d)\d{4}(?:[_ -]\d{4}){3}(?![_ -]?\d)/,
+  numbers: /^[0-9]*$/,
+};
+
+inputs.forEach((item) => {
+  item.addEventListener("keyup", validarFormulario);
+  item.addEventListener("blur", validarFormulario);
+
+  /* console.log("eje");
+  if (item.value.trim() === "") {
+    if (creditCard.value === "")
+      creditCard.parentNode.classList.remove("form__wrapper--errorFormat");
+    item.parentNode.classList.add("form__wrapper--error");
+  } else {
+    item.parentNode.classList.remove("form__wrapper--error");
+  }
+  if (
+    item.parentNode.classList.contains("form__wrapper--errorFormat") ||
+    item.parentNode.classList.contains("form__wrapper--error")
+  ) {
+    error = true;
+  } */
+});
+
+function validarFormulario(e) {
+  switch (e.target.name) {
+    case "name":
+      if (e.target.value.trim() === "") {
+        e.target.parentNode.classList.remove("form__wrapper--errorFormat");
+        e.target.parentNode.classList.add("form__wrapper--error");
+        return;
+      } else {
+        e.target.parentNode.classList.remove("form__wrapper--error");
+      }
+      if (!regexList.name.test(e.target.value)) {
+        console.log("funciona");
+        e.target.parentNode.classList.add("form__wrapper--errorFormat");
+      } else {
+        e.target.parentNode.classList.remove("form__wrapper--errorFormat");
+      }
+      break;
+    case "creditCard":
+      if (e.target.value.trim() === "") {
+        e.target.parentNode.classList.remove("form__wrapper--errorFormat");
+        e.target.parentNode.classList.add("form__wrapper--error");
+        return;
+      } else {
+        e.target.parentNode.classList.remove("form__wrapper--error");
+      }
+      if (!regexList.creditCard.test(e.target.value)) {
+        console.log("funciona");
+        e.target.parentNode.classList.add("form__wrapper--errorFormat");
+      } else {
+        e.target.parentNode.classList.remove("form__wrapper--errorFormat");
+      }
+      break;
+    case "month":
+    case "year":
+    case "key":
+      if (e.target.value.trim() === "") {
+        e.target.parentNode.classList.remove("form__wrapper--errorFormat");
+        e.target.parentNode.classList.add("form__wrapper--error");
+        return;
+      } else {
+        e.target.parentNode.classList.remove("form__wrapper--error");
+      }
+      if (!regexList.numbers.test(parseInt(e.target.value))) {
+        e.target.parentNode.classList.add("form__wrapper--errorFormat");
+      } else {
+        e.target.parentNode.classList.remove("form__wrapper--errorFormat");
+      }
+      break;
+  }
+}
+
+form.addEventListener("submit", function () {
+  event.preventDefault();
 
   if (error === false) {
-    alert("No error");
-    creditCardHtml.innerHTML = creditCard.value;
-    nameHtml.innerHTML = name.value;
-    expDateHtml.innerHTML = month.value + "/" + year.value;
-    keyHtml.innerHTML = keyCode.value;
-    odoo.default({
-      el: ".js-odoo",
-      from: "0000 0000 0000 0000",
-      to: "CODEVEMBER",
-      animationDelay: 500,
+    document.querySelectorAll(".block").forEach((item) => {
+      item.classList.add("block--active");
     });
+    setTimeout(function () {
+      creditCardValue.innerHTML = creditCard.value;
+      nameHtmlValue.innerHTML = name.value;
+      expDateHtmlValue.innerHTML = month.value + "/" + year.value;
+      keyHtml.innerHTML = keyCode.value;
+    }, 1000);
+    form.classList.add("form--hide");
+    completedDiv.classList.remove("completed--hide");
   }
 });
+
 let counter = 0;
 creditCard.addEventListener("keyup", function () {
   let input = creditCard.value;
@@ -67,7 +119,6 @@ creditCard.addEventListener("keyup", function () {
     if (i % 4 === 0 && i > 0) val = val.concat(" ");
     val = val.concat(input[i]);
   }
-  console.log(val);
   creditCard.value = val;
 });
 

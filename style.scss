@@ -79,14 +79,57 @@ body {
   letter-spacing: 2.9px;
   color: $White;
   width: 100%;
+  height: -webkit-fill-available;
+  position: relative;
+  transition: ease 0.2s;
+}
+.block {
+  width: 0%;
+  height: inherit;
+  background-image: linear-gradient(
+    to right,
+    #ffffff,
+    #f3f3f3,
+    #e8e8e8,
+    #dcdcdc,
+    #d1d1d1
+  );
+  position: absolute;
+  display: flex;
+  border-radius: 5px;
+}
+
+.block--active {
+  animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+}
+
+@keyframes mainBlock {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
 }
 .front-card__name {
   letter-spacing: 2px;
+  height: -webkit-fill-available;
+  position: relative;
+  transition: ease 0.2s;
 }
 .front-card__exp {
   margin-left: auto;
   letter-spacing: 1.5px;
   padding-right: 4px;
+  height: -webkit-fill-available;
+  position: relative;
+  transition: ease 0.2s;
 }
 .back-card {
   margin-left: 93px;
@@ -106,9 +149,20 @@ body {
 .form {
   padding: 0 62px;
   margin-top: 90px;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  opacity: 1;
+  height: auto;
+  transition: ease 0.1s;
+  pointer-events: all;
+}
+.form--hide {
+  opacity: 0;
+  height: 0;
+  transition: ease 0.1s;
+  pointer-events: none;
 }
 .form__wrapper {
   width: 100%;
@@ -126,6 +180,8 @@ body {
 .form__wrapper--date {
   display: flex;
   flex-wrap: wrap;
+  align-content: baseline;
+
   input {
     width: 42%;
     margin-right: 10px;
@@ -154,7 +210,6 @@ input::-webkit-inner-spin-button {
   font-size: 0.9em;
   font-family: "Space Grotesk", sans-serif;
   letter-spacing: 0.9px;
-
   color: $Verydarkviolet;
   &:focus {
     border: 1px solid $Verydarkviolet;
@@ -162,7 +217,7 @@ input::-webkit-inner-spin-button {
   }
 }
 .form__error--blank,
-.form__error--credit {
+.form__error--format {
   position: absolute;
   left: 0;
   bottom: -25px;
@@ -176,14 +231,17 @@ input::-webkit-inner-spin-button {
   .form__error--blank {
     display: block;
   }
+  .form__input {
+    border: 1px solid $Red;
+  }
 }
 .form__input--error {
   border: 1px solid $Red;
 }
-.form__wrapper--errorCredit {
+.form__wrapper--errorFormat {
   transition: ease 0.2s;
   margin-bottom: 51px;
-  .form__error--credit {
+  .form__error--format {
     display: block;
   }
   .form__input {
@@ -216,6 +274,19 @@ input::-webkit-inner-spin-button {
     width: 100%;
     text-align: center;
   }
+  opacity: 1;
+  height: auto;
+  transition: ease 0.5s;
+  pointer-events: all;
+}
+.completed--hide {
+  opacity: 0;
+  height: 0;
+  transition: ease 0.5s;
+  pointer-events: none;
+}
+#digit-4-1661713066918 {
+  display: none;
 }
 .completed__txt {
   margin-top: 30px;

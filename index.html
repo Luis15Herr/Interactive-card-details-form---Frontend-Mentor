@@ -47,11 +47,18 @@
             />
           </svg>
           <div class="front-card__bottom">
-            <span class="front-card__number">0000 0000 0000 0000</span>
-            <span class="front-card__name card--small-font"
-              >Jane Appleseed</span
-            >
-            <span class="front-card__exp card--small-font">00/00</span>
+            <span class="front-card__number">
+              <span class="block"></span>
+              <span class="value">0000 0000 0000 0000</span>
+            </span>
+            <span class="front-card__name card--small-font">
+              <span class="block"></span>
+              <span class="value">Jane Appleseed</span>
+            </span>
+            <span class="front-card__exp card--small-font">
+              <span class="block"></span>
+              <span class="value">00/00</span>
+            </span>
           </div>
         </div>
         <div class="card back-card">
@@ -69,26 +76,30 @@
             <span class="form__title"> Cardholder Name</span>
             <input
               id="name"
+              name="name"
               placeholder="e.g. Jane Appleseed"
               type="text"
               class="form__input"
             />
             <span class="form__error--blank">Can't be blank</span>
+            <span class="form__error--format">Wrong format, letters only</span>
           </div>
           <div class="form__wrapper">
             <span class="form__title"> Card Number</span>
             <input
+              name="creditCard"
               id="creditCard"
               maxlength="19"
               class="form__input"
               placeholder="e.g. 1234 5678 9123 0000"
             />
             <span class="form__error--blank">Can't be blank</span>
-            <span class="form__error--credit">Wrong format, numbers only</span>
+            <span class="form__error--format">Wrong format, numbers only</span>
           </div>
           <div class="form__wrapper--half form__wrapper--date">
             <span class="form__title"> Exp. Date (MM/YY)</span>
             <input
+              name="month"
               placeholder="MM"
               type="text"
               maxlength="2"
@@ -100,6 +111,7 @@
               id="month"
             />
             <input
+              name="year"
               placeholder="YY"
               maxlength="2"
               min="01"
@@ -110,10 +122,12 @@
               id="year"
             />
             <span class="form__error--blank">Can't be blank</span>
+            <span class="form__error--format">Wrong format, numbers only</span>
           </div>
           <div class="form__wrapper--half">
             <span class="form__title"> CVC</span>
             <input
+              name="key"
               class="form__input"
               type="text"
               maxlength="3"
@@ -125,10 +139,11 @@
               placeholder="e.g. 123 Confirm"
             />
             <span class="form__error--blank">Can't be blank</span>
+            <span class="form__error--format">Wrong format, numbers only</span>
           </div>
           <button class="form__btn">Confirm</button>
         </form>
-        <!-- <div class="completed">
+        <div class="completed completed--hide">
           <span src="" alt="" class="completed__icon"
             ><svg
               width="80"
@@ -160,22 +175,16 @@
           <span class="completed__txt">Thank You!</span>
           <span class="completed__subTxt">We've added your card details</span>
           <button class="completed__btn">Continue</button>
-        </div> -->
+        </div>
       </div>
     </main>
-
-    <!-- Completed state start 
-    Thank you! We've added your card details Continue
-    -->
 
     <div class="attribution" role="contentinfo">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
-      <div class="js-odoo"></div>
     </div>
-    <script src="odoo.js"></script>
     <script src="js.js"></script>
   </body>
 </html>

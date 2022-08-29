@@ -89,16 +89,75 @@ body {
   letter-spacing: 2.9px;
   color: white;
   width: 100%;
+  height: -webkit-fill-available;
+  position: relative;
+  -webkit-transition: ease 0.2s;
+  transition: ease 0.2s;
+}
+
+.block {
+  width: 0%;
+  height: inherit;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), color-stop(#f3f3f3), color-stop(#e8e8e8), color-stop(#dcdcdc), to(#d1d1d1));
+  background-image: linear-gradient(to right, #ffffff, #f3f3f3, #e8e8e8, #dcdcdc, #d1d1d1);
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+}
+
+.block--active {
+  -webkit-animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+          animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+}
+
+@-webkit-keyframes mainBlock {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes mainBlock {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
 }
 
 .front-card__name {
   letter-spacing: 2px;
+  height: -webkit-fill-available;
+  position: relative;
+  -webkit-transition: ease 0.2s;
+  transition: ease 0.2s;
 }
 
 .front-card__exp {
   margin-left: auto;
   letter-spacing: 1.5px;
   padding-right: 4px;
+  height: -webkit-fill-available;
+  position: relative;
+  -webkit-transition: ease 0.2s;
+  transition: ease 0.2s;
 }
 
 .back-card {
@@ -122,6 +181,7 @@ body {
 .form {
   padding: 0 62px;
   margin-top: 90px;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -130,6 +190,19 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  opacity: 1;
+  height: auto;
+  -webkit-transition: ease 0.1s;
+  transition: ease 0.1s;
+  pointer-events: all;
+}
+
+.form--hide {
+  opacity: 0;
+  height: 0;
+  -webkit-transition: ease 0.1s;
+  transition: ease 0.1s;
+  pointer-events: none;
 }
 
 .form__wrapper {
@@ -154,6 +227,8 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-line-pack: baseline;
+      align-content: baseline;
 }
 
 .form__wrapper--date input {
@@ -195,7 +270,7 @@ input::-webkit-inner-spin-button {
 }
 
 .form__error--blank,
-.form__error--credit {
+.form__error--format {
   position: absolute;
   left: 0;
   bottom: -25px;
@@ -214,21 +289,25 @@ input::-webkit-inner-spin-button {
   display: block;
 }
 
+.form__wrapper--error .form__input {
+  border: 1px solid #ff5252;
+}
+
 .form__input--error {
   border: 1px solid #ff5252;
 }
 
-.form__wrapper--errorCredit {
+.form__wrapper--errorFormat {
   -webkit-transition: ease 0.2s;
   transition: ease 0.2s;
   margin-bottom: 51px;
 }
 
-.form__wrapper--errorCredit .form__error--credit {
+.form__wrapper--errorFormat .form__error--format {
   display: block;
 }
 
-.form__wrapper--errorCredit .form__input {
+.form__wrapper--errorFormat .form__input {
   border: 1px solid #ff5252;
 }
 
@@ -258,12 +337,29 @@ input::-webkit-inner-spin-button {
   height: 100%;
   -ms-flex-line-pack: center;
       align-content: center;
+  opacity: 1;
+  height: auto;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+  pointer-events: all;
 }
 
 .completed span {
   display: block;
   width: 100%;
   text-align: center;
+}
+
+.completed--hide {
+  opacity: 0;
+  height: 0;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+  pointer-events: none;
+}
+
+#digit-4-1661713066918 {
+  display: none;
 }
 
 .completed__txt {
