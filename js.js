@@ -10,9 +10,7 @@ let actualYear = new Date().getFullYear();
 let creditCardValue = document.querySelector(".front-card__number .value");
 let nameHtmlValue = document.querySelector(".front-card__name .value");
 let expDateHtmlValue = document.querySelector(".front-card__exp .value");
-let keyHtml = document.querySelector(".back-card__key");
-
-let error = false;
+let keyHtmlValue = document.querySelector(".back-card__key .value");
 
 let regexList = {
   name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
@@ -21,27 +19,33 @@ let regexList = {
   numbers: /^[0-9]*$/,
 };
 
-inputs.forEach((item) => {
-  item.addEventListener("keyup", validarFormulario);
-  item.addEventListener("blur", validarFormulario);
+let fields = {
+  name: false,
+  card: false,
+  month: false,
+  year: false,
+  key: false,
+};
 
-  /* console.log("eje");
-  if (item.value.trim() === "") {
-    if (creditCard.value === "")
-      creditCard.parentNode.classList.remove("form__wrapper--errorFormat");
-    item.parentNode.classList.add("form__wrapper--error");
-  } else {
-    item.parentNode.classList.remove("form__wrapper--error");
-  }
-  if (
-    item.parentNode.classList.contains("form__wrapper--errorFormat") ||
-    item.parentNode.classList.contains("form__wrapper--error")
-  ) {
-    error = true;
-  } */
+inputs.forEach((item) => {
+  item.addEventListener("keyup", validateForm);
+  item.addEventListener("blur", validateForm);
 });
 
-function validarFormulario(e) {
+function validateOnSubmit() {
+  inputs.forEach((item) => {
+    if (item.value.trim() === "") {
+      item.parentNode.classList.remove("form__wrapper--errorFormat");
+      item.parentNode.classList.add("form__wrapper--error");
+      fields[item.name] = false;
+      return;
+    } else {
+      item.parentNode.classList.remove("form__wrapper--error");
+    }
+  });
+}
+
+function validateForm(e) {
   switch (e.target.name) {
     case "name":
       if (e.target.value.trim() === "") {
@@ -52,10 +56,10 @@ function validarFormulario(e) {
         e.target.parentNode.classList.remove("form__wrapper--error");
       }
       if (!regexList.name.test(e.target.value)) {
-        console.log("funciona");
         e.target.parentNode.classList.add("form__wrapper--errorFormat");
       } else {
         e.target.parentNode.classList.remove("form__wrapper--errorFormat");
+        fields.name = true;
       }
       break;
     case "creditCard":
@@ -71,6 +75,7 @@ function validarFormulario(e) {
         e.target.parentNode.classList.add("form__wrapper--errorFormat");
       } else {
         e.target.parentNode.classList.remove("form__wrapper--errorFormat");
+        fields.card = true;
       }
       break;
     case "month":
@@ -87,15 +92,16 @@ function validarFormulario(e) {
         e.target.parentNode.classList.add("form__wrapper--errorFormat");
       } else {
         e.target.parentNode.classList.remove("form__wrapper--errorFormat");
+        fields[e.target.name] = true;
       }
       break;
   }
 }
-
 form.addEventListener("submit", function () {
   event.preventDefault();
+  validateOnSubmit();
 
-  if (error === false) {
+  if (fields.card && fields.name && fields.key && fields.month && fields.year) {
     document.querySelectorAll(".block").forEach((item) => {
       item.classList.add("block--active");
     });
@@ -103,8 +109,10 @@ form.addEventListener("submit", function () {
       creditCardValue.innerHTML = creditCard.value;
       nameHtmlValue.innerHTML = name.value;
       expDateHtmlValue.innerHTML = month.value + "/" + year.value;
-      keyHtml.innerHTML = keyCode.value;
+      keyHtmlValue.innerHTML = keyCode.value;
+      keyHtmlValue.classList.add("fade-in");
     }, 1000);
+    keyHtmlValue.classList.add("fade-out");
     form.classList.add("form--hide");
     completedDiv.classList.remove("completed--hide");
   }
@@ -140,6 +148,7 @@ month.addEventListener("change", function () {
 });
 
 year.addEventListener("focusout", function () {
+  if (year.value === "") return;
   if (year.value < Number(String(actualYear).slice(-2))) {
     year.value = Number(String(actualYear).slice(-2));
   }

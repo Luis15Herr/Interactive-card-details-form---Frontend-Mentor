@@ -178,6 +178,18 @@ body {
   padding-left: 50px;
 }
 
+.fade-out {
+  opacity: 0;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+.fade-in {
+  opacity: 1;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
 .form {
   padding: 0 62px;
   margin-top: 90px;

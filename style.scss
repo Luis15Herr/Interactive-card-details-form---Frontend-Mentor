@@ -139,12 +139,19 @@ body {
   right: 57px;
   letter-spacing: 2px;
   padding-bottom: 5px;
-
   top: 50%;
   transform: translateY(-50%);
 }
 .form-container {
   padding-left: 50px;
+}
+.fade-out {
+  opacity: 0;
+  transition: ease 0.5s;
+}
+.fade-in {
+  opacity: 1;
+  transition: ease 0.5s;
 }
 .form {
   padding: 0 62px;
