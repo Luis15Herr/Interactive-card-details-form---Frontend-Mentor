@@ -13,7 +13,7 @@ html {
 body {
   font-family: "Space Grotesk", sans-serif;
   position: relative;
-  font-size: 18px;
+  font-size: 1.125rem;
   position: relative;
   background-image: url(./images/bg-main-desktop.png);
   background-position: left;
@@ -35,7 +35,7 @@ body {
 }
 
 .container {
-  width: 1110px;
+  width: 69.375rem;
   margin: auto;
 }
 
@@ -50,8 +50,8 @@ body {
 }
 
 .card {
-  height: 245px;
-  width: 447px;
+  height: 15.3125rem;
+  width: 27.9375rem;
   position: relative;
 }
 
@@ -62,19 +62,19 @@ body {
 }
 
 .front-card {
-  margin-bottom: 38px;
+  margin-bottom: 2.375rem;
 }
 
 .front-card__logo {
   position: absolute;
-  top: 28px;
-  left: 30px;
+  top: 1.75rem;
+  left: 1.875rem;
 }
 
 .front-card__bottom {
   position: absolute;
   bottom: 0;
-  padding: 25px 30px;
+  padding: 1.5625rem 1.875rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,8 +85,8 @@ body {
 .front-card__number {
   display: block;
   font-size: 1.61em;
-  margin-bottom: 26px;
-  letter-spacing: 2.9px;
+  margin-bottom: 1.625rem;
+  letter-spacing: 0.1812rem;
   color: white;
   width: 100%;
   height: -webkit-fill-available;
@@ -104,7 +104,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }
 
 .block--active {
@@ -143,7 +143,7 @@ body {
 }
 
 .front-card__name {
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
   height: -webkit-fill-available;
   position: relative;
   -webkit-transition: ease 0.2s;
@@ -152,8 +152,8 @@ body {
 
 .front-card__exp {
   margin-left: auto;
-  letter-spacing: 1.5px;
-  padding-right: 4px;
+  letter-spacing: 0.0938rem;
+  padding-right: 0.25rem;
   height: -webkit-fill-available;
   position: relative;
   -webkit-transition: ease 0.2s;
@@ -161,21 +161,21 @@ body {
 }
 
 .back-card {
-  margin-left: 93px;
+  margin-left: 5.8125rem;
 }
 
 .back-card__key {
   position: absolute;
-  right: 57px;
-  letter-spacing: 2px;
-  padding-bottom: 5px;
+  right: 3.5625rem;
+  letter-spacing: 0.125rem;
+  padding-bottom: 0.3125rem;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 
 .form-container {
-  padding-left: 50px;
+  padding-left: 3.125rem;
 }
 
 .fade-out {
@@ -191,8 +191,8 @@ body {
 }
 
 .form {
-  padding: 0 62px;
-  margin-top: 90px;
+  padding: 0 3.875rem;
+  margin-top: 5.625rem;
   height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -219,7 +219,7 @@ body {
 
 .form__wrapper {
   width: 100%;
-  margin-bottom: 28px;
+  margin-bottom: 1.75rem;
   position: relative;
   -webkit-transition: ease 0.2s;
   transition: ease 0.2s;
@@ -229,7 +229,7 @@ body {
   width: 50%;
   -webkit-transition: ease 0.2s;
   transition: ease 0.2s;
-  margin-bottom: 41px;
+  margin-bottom: 2.5625rem;
   position: relative;
 }
 
@@ -245,15 +245,15 @@ body {
 
 .form__wrapper--date input {
   width: 42%;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 
 .form__title {
   display: block;
   text-transform: uppercase;
   font-size: 0.62em;
-  letter-spacing: 2.6px;
-  margin-bottom: 8px;
+  letter-spacing: 0.1625rem;
+  margin-bottom: 0.5rem;
   color: #21092f;
 }
 
@@ -265,19 +265,19 @@ input::-webkit-inner-spin-button {
 
 .form__input {
   width: 100%;
-  height: 45px;
-  border: 1px solid #8e8593;
-  border-radius: 7px;
-  padding: 0 15px;
-  padding-top: 5px;
+  height: 2.8125rem;
+  border: 0.0625rem solid #8e8593;
+  border-radius: 0.4375rem;
+  padding: 0 0.9375rem;
+  padding-top: 0.3125rem;
   font-size: 0.9em;
   font-family: "Space Grotesk", sans-serif;
-  letter-spacing: 0.9px;
+  letter-spacing: 0.0563rem;
   color: #21092f;
 }
 
 .form__input:focus {
-  border: 1px solid #21092f;
+  border: 0.0625rem solid #21092f;
   outline: none;
 }
 
@@ -285,7 +285,7 @@ input::-webkit-inner-spin-button {
 .form__error--format {
   position: absolute;
   left: 0;
-  bottom: -25px;
+  bottom: -1.5625rem;
   font-size: 0.68em;
   color: #ff5252;
   display: none;
@@ -294,7 +294,7 @@ input::-webkit-inner-spin-button {
 .form__wrapper--error {
   -webkit-transition: ease 0.2s;
   transition: ease 0.2s;
-  margin-bottom: 51px;
+  margin-bottom: 3.1875rem;
 }
 
 .form__wrapper--error .form__error--blank {
@@ -302,17 +302,17 @@ input::-webkit-inner-spin-button {
 }
 
 .form__wrapper--error .form__input {
-  border: 1px solid #ff5252;
+  border: 0.0625rem solid #ff5252;
 }
 
 .form__input--error {
-  border: 1px solid #ff5252;
+  border: 0.0625rem solid #ff5252;
 }
 
 .form__wrapper--errorFormat {
   -webkit-transition: ease 0.2s;
   transition: ease 0.2s;
-  margin-bottom: 51px;
+  margin-bottom: 3.1875rem;
 }
 
 .form__wrapper--errorFormat .form__error--format {
@@ -320,19 +320,19 @@ input::-webkit-inner-spin-button {
 }
 
 .form__wrapper--errorFormat .form__input {
-  border: 1px solid #ff5252;
+  border: 0.0625rem solid #ff5252;
 }
 
 .form__btn {
   width: 100%;
-  height: 53px;
+  height: 3.3125rem;
   background-color: #21092f;
   color: white;
   font-family: "Space Grotesk", sans-serif;
   border: none;
-  border-radius: 7px;
+  border-radius: 0.4375rem;
   font-size: 0.95em;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.0313rem;
   cursor: pointer;
 }
 
@@ -375,34 +375,34 @@ input::-webkit-inner-spin-button {
 }
 
 .completed__txt {
-  margin-top: 30px;
+  margin-top: 1.875rem;
   font-size: 1.6em;
-  letter-spacing: 3px;
+  letter-spacing: 0.1875rem;
   text-transform: uppercase;
 }
 
 .completed__subTxt {
-  margin-top: 15px;
+  margin-top: 0.9375rem;
 }
 
 .completed__btn {
-  margin-top: 48px;
-  height: 53px;
-  width: 380px;
-  border-radius: 5px;
+  margin-top: 3rem;
+  height: 3.3125rem;
+  width: 23.75rem;
+  border-radius: 0.3125rem;
   border: none;
   color: white;
   font-size: 1em;
-  letter-spacing: 1px;
+  letter-spacing: 0.0625rem;
   background-color: #21092f;
   cursor: pointer;
 }
 
 .attribution {
   position: absolute;
-  font-size: 11px;
+  font-size: 0.6875rem;
   text-align: center;
-  bottom: 15px;
+  bottom: 0.9375rem;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
   left: 50%;
@@ -412,13 +412,13 @@ input::-webkit-inner-spin-button {
   color: #3e52a3;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 64rem) {
   .container {
     width: 95%;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 50rem) {
   body {
     background-image: url(./images/bg-main-mobile.png);
     background-size: 100% 35%;
@@ -428,7 +428,7 @@ input::-webkit-inner-spin-button {
     width: 70%;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    padding: 35px 0;
+    padding: 2.1875rem 0;
     -ms-flex-line-pack: initial;
         align-content: initial;
   }
@@ -445,7 +445,7 @@ input::-webkit-inner-spin-button {
         -ms-flex-order: 1;
             order: 1;
     position: absolute;
-    bottom: 10px;
+    bottom: 0.625rem;
     z-index: 1;
   }
   .back-card {
@@ -459,39 +459,39 @@ input::-webkit-inner-spin-button {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 37.5rem) {
   html,
   body {
     height: auto;
   }
   body {
     background-image: url(./images/bg-main-mobile.png);
-    background-size: 100% 230px;
+    background-size: 100% 14.375rem;
     background-position: top;
-    padding-bottom: 30px;
+    padding-bottom: 1.875rem;
   }
   .container {
     width: 100%;
     height: auto;
-    padding: 35px 20px;
+    padding: 2.1875rem 1.25rem;
     display: block;
   }
   .front-card {
-    bottom: -90px;
+    bottom: -5.625rem;
   }
   .back-card {
     margin-left: auto;
   }
   .card {
-    height: 160px;
-    width: 290px;
+    height: 10rem;
+    width: 18.125rem;
   }
   .card img {
     width: 100%;
   }
   .front-card__logo {
-    top: 5px;
-    left: 15px;
+    top: 0.3125rem;
+    left: 0.9375rem;
     -webkit-transform: scale(0.6);
             transform: scale(0.6);
   }
@@ -502,16 +502,16 @@ input::-webkit-inner-spin-button {
     font-size: 0.6em;
   }
   .back-card__key {
-    right: 35px;
+    right: 2.1875rem;
   }
   .form-container {
-    margin-top: 120px;
+    margin-top: 7.5rem;
   }
   .form {
     padding: 0;
   }
   .form__wrapper--half {
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
   }
   .completed__btn {
     width: 100%;
