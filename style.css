@@ -277,7 +277,7 @@ input::-webkit-inner-spin-button {
 }
 
 .form__input:focus {
-  border: 0.0625rem solid #21092f;
+  border: 0.0625rem solid #5c3d6c;
   outline: none;
 }
 

@@ -153,3 +153,9 @@ year.addEventListener("focusout", function () {
     year.value = Number(String(actualYear).slice(-2));
   }
 });
+
+function resetForm() {
+  form.reset();
+  form.classList.remove("form--hide");
+  completedDiv.classList.add("completed--hide");
+}
